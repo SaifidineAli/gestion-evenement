@@ -1,0 +1,31 @@
+<!-- Section Contact (Footer) -->
+<footer id="contact" class="bg-light py-2 px-4" >
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <h2>Contactez-nous</h2>
+                <p>Si vous avez des questions ou des commentaires, n'hésitez pas à nous contacter :</p>
+                <ul>
+                    <li>Email: info@mairie-ouani.com</li>
+                    <li>Téléphone: +269 394 04 59</li>
+                    <!-- Ajoutez d'autres informations de contact ici -->
+                </ul>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <!-- Ajoutez ici un formulaire de contact -->
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <!-- Ajoutez les champs du formulaire ici -->
+                    <label for="message_contact" class="control-label">Message</label>
+                    <input type="text" id="message_contact" class="form-control">
+                    <button type="submit" class="btn btn-primary mt-2">Envoyer</button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <!-- Ajoutez ici des liens vers les pages d'inscription et de connexion -->
+                <a href="#">S'inscrire</a>
+                <a href="#">Se connecter</a>
+            </div>
+        </div>
+    </div>
+</footer>

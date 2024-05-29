@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Gestion - Evènements{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap-5.2.3/dist/css/bootstrap.min.css' %}">
+        {% block stylesheet %}
+            <!-- Inclure les liens vers les feuilles de style CSS ici -->
+        {% endblock %}
+    </head>
+    <body>
+        {% include 'partials/navbar.html' %}
+        
+        {% block content %}{% endblock content %}
+
+        {# include 'partials/footer.html' #}
+
+        <script src="{% static 'jquery-3.7.0.min.js' %}"></script>
+        <script src="{% static 'bootstrap-5.2.3/dist/js/bootstrap.bundle.min.js' %}"></script>
+        {% block javascript %}
+            <!-- Inclure les scripts JavaScript ici -->
+        {% endblock %}
+    </body>
+</html>

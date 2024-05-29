@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="my-4">{{ event.title }}</h2>
+    <div class="card shadow px-4 py-2">
+        <p><i>{{ event.description }}</i></p>
+        <p><strong>Organisateur </strong> : {{ event.organizer.username }}</p>
+        <p><strong>Date </strong> : {{ event.date }}</p>
+        
+        {% if user_is_registered %}
+            <p class="bg-success text-light px-3 py-2 rounded">Tu es déjà inscrit</p>
+        {% else %}
+            <a href="{% url 'register_event' event.id %}">S'inscrire</a>
+        {% endif %}
+    </div>
+    <h2 class="my-4">Liste des inscrits à cet évènement</h2>
+    <ul>
+        {% for registration in registrations %}
+            <li><strong>{{ registration.user.username }}</strong> <i>(inscrit le {{ registration.timestamp }})</i></li>
+        {% empty %}
+            <li>Pas encore d'inscrits</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

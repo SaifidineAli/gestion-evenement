@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="my-4">S'inscrire à l'événement : {{ event.title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        {% if user_is_registered %}
+        <button type="submit" class="btn btn-primary" disabled>S'inscrire</button>
+        {% else %}
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}

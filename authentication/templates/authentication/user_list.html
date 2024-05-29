@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Liste des utilisateurs</h2>
+    <div class="card shadow px-4 py-2">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Photo</th>
+                    <th>Nom utilisateur</th>
+                    <th>Prénom</th>
+                    <th>Nom de famille</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>
+                            {% if user.profile_photo %}
+                                <img class="avatar img-thumbnail rounded-circle" src="{{ user.profile_photo.url }}" width="60px" height="60px">
+                            {% else %}
+                                <img class="avatar img-thumbnail rounded-circle" src="{% static 'images/default_profile.png' %}" width="60px" height="60px">
+                            {% endif %}
+                        </td>
+                        <td class="align-middle">
+                            <span class="bg-success text-light rounded px-2 py-1"><i>{{ user.username }}</i></span>
+                        </td>
+                        <td class="align-middle">{{ user.first_name }}</td>
+                        <td class="align-middle">{{ user.last_name }}</td>
+                        <td class="align-middle">
+                            <span class="bg-dark text-light rounded px-2 py-1">{{ user.email }}</span>
+                        </td>
+                        <td class="align-middle">
+                            <a href="#">modifier</a>
+                            <a href="#">supprimer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

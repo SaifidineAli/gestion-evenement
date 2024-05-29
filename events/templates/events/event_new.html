@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+<div class="container">
+    <h2 class="my-4">Ajout de nouvel évènement</h2>
+    <div class="card shadow px-4 py-2">
+        <form method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="id_title" class="form-label">Titre</label>
+                {{ form.title | add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Description</label>
+                {{ form.description | add_class:"form-control" }}
+            </div>
+            <div class="mb-3">
+                <label for="id_date" class="form-label">Date</label>
+                {{ form.date | add_class:"form-control" }}
+            </div>
+            <button type="submit" class="btn btn-primary">Ajouter</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
